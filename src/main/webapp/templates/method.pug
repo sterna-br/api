@@ -1,0 +1,13 @@
+extends swaggerbase
+
+block content
+    h1 #{parent}/#{method}
+
+    each verb in Object.keys(info)
+        +operationHeader(verb, info[verb])
+        +operationParameters(info[verb].parameters)
+        +operationResponses(info[verb].responses)
+
+    p &nbsp;
+
+    a(href='index.html') Voltar

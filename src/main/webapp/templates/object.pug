@@ -1,0 +1,31 @@
+extends swaggerbase
+
+block headstyle
+    style.
+        .item-wrapper {
+            float:left;
+            width: 100%;
+        }
+
+        .item {
+            width:400px;
+            margin:4px;
+            display: inline-block;
+        }
+
+block content
+    h1 #{object}
+
+    each verb in Object.keys(info)
+        if verb != 'methods'
+            +operationHeader(verb, info[verb])
+            +operationParameters(info[verb].parameters)
+            +operationResponses(info[verb].responses)
+
+    hr
+    +operationMethods(info.methods)
+
+    p &nbsp;
+
+    a(href='../index.html') Voltar
+    

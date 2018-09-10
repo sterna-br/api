@@ -1,0 +1,84 @@
+extends core
+
+mixin operationHeader(verb, operation)
+    h4 #{verb.toUpperCase()}
+    dl
+        dt Summary
+        dd #{operation.summary}
+        dt Description
+        dd #{operation.description}
+        dd Consumes: #{operation.consumes}
+        dd Produces: #{operation.produces}
+
+mixin operationParameters(parameters)
+    if parameters
+        h4 Parâmetro
+
+        table(class="table table-bordered")
+            th Name
+            th Description
+            th in
+            th required
+            th type
+            
+            each item in parameters
+                tr
+                    td #{item.name}
+                    td #{item.description}
+                    td #{item.in}
+                    td #{item.required}
+                    td #{item.type}
+
+mixin operationResponses(responses)
+    if responses
+        h4 Responses
+        table(class="table table-striped")
+            th Response Code
+            th Description
+            th Definition
+            each key in Object.keys(responses)
+                tr
+                    td #{key}
+                    td #{responses[key].description}
+                    td
+                        if responses[key].schema && responses[key].schema['$ref']
+                            - var splitstring = responses[key].schema['$ref'].split('/');
+                            - var ref = splitstring[splitstring.length - 1];
+                            a(href='../definitions/' + ref + '.html') #{ref}
+                    
+
+mixin operationMethods(methods)
+    if methods
+        h4 Métodos
+        div(class='item-wrapper')
+            each verb in Object.keys(methods)
+                div(class='item')                         
+                    a(href=verb + '.html') #{verb}
+        div(style='clear: both')
+
+mixin definitionProperties(properties)
+    if properties
+        h4 Propriedades
+        table(class="table table-bordered")
+            th Name
+            th Type
+            th Format
+            th Reference
+            each property in Object.keys(properties)
+                tr
+                    td                         
+                        | #{property}
+                    td
+                        | #{properties[property].type}
+                    td
+                        | #{properties[property].format}
+                    td
+                        if properties[property].items && properties[property].items['$ref']
+                            - var splitstring = properties[property].items['$ref'].split('/');
+                            - var ref = splitstring[splitstring.length - 1];
+                            a(href=ref + '.html') #{ref}
+
+
+
+block projectname
+    | #{swagger.info.title}
