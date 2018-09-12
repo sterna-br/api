@@ -41,7 +41,7 @@ public class WaysDAO {
      * @return
      */
     public List listGroup(String value) {
-        return null;
+        return ways.listGroup(value);
     }
 
     /**
@@ -52,7 +52,7 @@ public class WaysDAO {
      * @return
      */
     public Features searchByGeo(Double lat, Double lng, Double rad) {
-        return null;
+        return ways.searchByGeo(lat, lng, rad);
     }
 
     /**
@@ -64,7 +64,7 @@ public class WaysDAO {
      * @return
      */
     public Features searchByCategory(String category, Double lat, Double lng, Double rad) {
-        return null;
+        return ways.searchByCategory(category, lat, lng, rad);
     }
 
     /**
@@ -77,7 +77,7 @@ public class WaysDAO {
      * @return
      */
     public Features searchByCategoryGroup(String category, String group, Double lat, Double lng, Double rad) {
-        return null;
+        return ways.searchByCategoryGroup(category, group, lat, lng, rad);
     }
 
     /**
@@ -87,7 +87,7 @@ public class WaysDAO {
      * @return
      */
     public Features searchByCategoryDescription(String category, String description) {
-        return null;
+        return ways.searchByCategoryDescription(category, description);
     }
 
     /**
@@ -98,7 +98,7 @@ public class WaysDAO {
      * @return
      */
     public Features searchByCategoryGroupDescription(String category, String group, String description) {
-        return null;
+        return ways.searchByCategoryGroupDescription(category, group, description);
     }
 
     /**
@@ -107,7 +107,6 @@ public class WaysDAO {
      * @return
      */
     public Features searchByDescription(String description) {
-        return null;
+        return ways.searchByDescription(description);
     }
-
 }

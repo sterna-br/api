@@ -31,7 +31,6 @@ public class TileDAO {
      * @return
      */
     public String parserToXYZ(final double lat, final double lon, final int zoom) {
-
         return null;
     }
 

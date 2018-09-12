@@ -13,9 +13,9 @@ import javax.inject.Inject;
  * @author PauloGladson
  */
 public class NodesDAO {
-
+    
     private static final Logger LOG = getLogger(NodesDAO.class.getName());
-
+    
     @Inject
     private Nodes nodes;
 
@@ -41,7 +41,7 @@ public class NodesDAO {
      * @return
      */
     public List listGroup(String value) {
-        return null;
+        return nodes.listGroup(value);
     }
 
     /**
@@ -52,7 +52,7 @@ public class NodesDAO {
      * @return
      */
     public Features searchByGeo(Double lat, Double lng, Double rad) {
-        return null;
+        return nodes.searchByGeo(lat, lng, rad);
     }
 
     /**
@@ -64,7 +64,7 @@ public class NodesDAO {
      * @return
      */
     public Features searchByCategory(String category, Double lat, Double lng, Double rad) {
-        return null;
+        return nodes.searchByCategory(category, lat, lng, rad);
     }
 
     /**
@@ -77,7 +77,7 @@ public class NodesDAO {
      * @return
      */
     public Features searchByCategoryGroup(String category, String group, Double lat, Double lng, Double rad) {
-        return null;
+        return nodes.searchByCategoryGroup(category, group, lat, lng, rad);
     }
 
     /**
@@ -87,7 +87,7 @@ public class NodesDAO {
      * @return
      */
     public Features searchByCategoryDescription(String category, String description) {
-        return null;
+        return nodes.searchByCategoryDescription(category, description);
     }
 
     /**
@@ -98,7 +98,7 @@ public class NodesDAO {
      * @return
      */
     public Features searchByCategoryGroupDescription(String category, String group, String description) {
-        return null;
+        return nodes.searchByCategoryGroupDescription(category, group, description);
     }
 
     /**
@@ -107,7 +107,7 @@ public class NodesDAO {
      * @return
      */
     public Features searchByDescription(String description) {
-        return null;
+        return nodes.searchByDescription(description);
     }
-
+    
 }
